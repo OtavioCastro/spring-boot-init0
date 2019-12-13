@@ -19,6 +19,24 @@ public class Carro {
 	@ElementCollection
 	private List<Carro> carros;
 	
+		
+
+	public Carro() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public Carro(String marca, String modelo, int ano, float preco) {
+		super();
+		this.marca = marca;
+		this.modelo = modelo;
+		this.ano = ano;
+		this.preco = preco;
+	}
+
+
+
 	public Integer getId() {
 		return id;
 	}
