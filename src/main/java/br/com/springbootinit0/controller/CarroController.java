@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.springbootinit0.model.Carro;
-import br.com.springbootinit0.repository.CarroRepository;
+import br.com.springbootinit0.service.CarroService;
 
 @Controller
 public class CarroController {
 
 	@Autowired
-	private CarroRepository carroRepository;
+	private CarroService carroService;
 			
 	@GetMapping("/formCarro")
 	public String teste() {
@@ -33,14 +33,14 @@ public class CarroController {
 		novoCarro.setAno(ano);
 		novoCarro.setPreco(preco);
 		
-		this.carroRepository.save(novoCarro);
+		this.carroService.save(novoCarro);
 		
 		return "redirect:listaCarros";
 	}
 	
 	@RequestMapping("/listaCarros")
 	public String listaCarros(Model model) {
-		model.addAttribute("carrosList", this.carroRepository.findAll());
+		model.addAttribute("carrosList", this.carroService.findAll());
 		
 		return "listaCarros";
 	}

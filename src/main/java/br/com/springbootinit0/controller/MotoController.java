@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.springbootinit0.model.Moto;
-import br.com.springbootinit0.repository.MotoRepository;
+import br.com.springbootinit0.service.MotoService;
 
 @Controller
 public class MotoController {
 
 	@Autowired
-	MotoRepository motoRepository;
+	MotoService motoService;
 	
 	@GetMapping("/formMoto")
 	public String teste() {
@@ -33,14 +33,14 @@ public class MotoController {
 		novaMoto.setAno(ano);
 		novaMoto.setPreco(preco);
 		
-		this.motoRepository.save(novaMoto);
+		this.motoService.save(novaMoto);
 		
 		return "redirect:listaMotos";
 	}
 	
 	@RequestMapping("/listaMotos")
 	public String listaCarros(Model model) {
-		model.addAttribute("motosList", this.motoRepository.findAll());
+		model.addAttribute("motosList", this.motoService.findAll());
 		
 		return "listaMotos";
 	}
