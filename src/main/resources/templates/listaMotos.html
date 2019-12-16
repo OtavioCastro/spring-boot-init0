@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista de motos da concessionária</title>
+</head>
+<body>
+
+	<table border="1">
+		<tr>
+			<th>Marca</th>
+			<th>Modelo</th>
+			<th>Ano</th>
+			<th>Preço</th>
+		</tr>
+		
+		<tr th:each="moto: ${motosList}">
+			<td th:text= "${moto.marca}">
+			<td th:text= "${moto.modelo}">
+			<td th:text= "${moto.ano}">
+			<td th:text= "${moto.preco}">					
+		</tr>
+		
+	</table>
+
+</body>
+</html>
